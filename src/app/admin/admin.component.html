@@ -1,0 +1,21 @@
+<div class="mainDiv">
+    <form (ngSubmit)="onSubmit(productModel)">
+      <div class="form-group">
+        <label >Product Name</label>
+        <input type="text" class="form-control" id="pname1"  name="productName" [(ngModel)]="productModel.productName">
+      </div>
+      <div class="form-group">
+        <label >Product Cost</label>
+        <input type="text" class="form-control" id="pcost" name="productCost" [(ngModel)]="productModel.productCost">
+      </div>
+      <div class="form-check">
+        <label >Product Category</label>
+        <select id="pCategory1" name="productCategory" [(ngModel)]="productModel.productCategory">
+          <option>Laptop</option>
+          <option>Camera</option>
+          <option>MobilePhone</option>
+        </select>
+      </div>
+      <button type="submit" >Submit</button>
+    </form>
+    </div>
