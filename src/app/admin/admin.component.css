@@ -2,3 +2,11 @@
     width: 20%;
     margin-left: 10%;
 }
+.errorMsg{
+    color:red;
+    font-size: medium;
+}
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+    box-shadow: 0 0 2px inset red ;
+}

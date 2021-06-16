@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetails } from '../product-details';
+import { ProductServiceService } from '../product-service.service';
 
 
 @Component({
@@ -9,24 +10,19 @@ import { ProductDetails } from '../product-details';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
   productModel:ProductDetails = new ProductDetails('',0,'');
+  productService:ProductServiceService;
+  
+  constructor(lp:ProductServiceService) {
+    this. productService=lp;
+   }
 
-  laptop:ProductDetails[] = [];
-  camera:ProductDetails[] = [];
   ngOnInit(): void {
   }
-  onSubmit(product:ProductDetails)
+  onSubmit()
   {
-    if(product.productCategory=='Laptop'){
-      this.laptop.push(product);
-    }
-    else{
-      this.camera.push(product);
-    }
+    console.log(this.productModel.productName);
+    this.productService.addProduct(this.productModel);
   }
 
-  getAllLaptops(){
-    return this.laptop;
-  }
 }

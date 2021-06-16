@@ -1,12 +1,22 @@
 <div class="mainDiv">
-    <form (ngSubmit)="onSubmit(productModel)">
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
       <div class="form-group">
         <label >Product Name</label>
-        <input type="text" class="form-control" id="pname1"  name="productName" [(ngModel)]="productModel.productName">
+        <input type="text" class="form-control" id="pname1"  name="productName" [(ngModel)]="productModel.productName" #productName="ngModel" required>
+        Touched {{productName.touched}}
+        Dirty {{productName.dirty}}
+        untouched {{productName.untouched}}
+        pristine {{productName.pristine}}
+        Invalid {{productName.invalid}}
+        <div *ngIf="productName.invalid == true && productName.pristine == false" class="errorMsg"> 
+        
+            Product name cannot be left blank
+         
+        </div>
       </div>
       <div class="form-group">
         <label >Product Cost</label>
-        <input type="text" class="form-control" id="pcost" name="productCost" [(ngModel)]="productModel.productCost">
+        <input type="text" class="form-control" id="pcost" name="productCost" [(ngModel)]="productModel.productCost" #productCost="ngModel" required>
       </div>
       <div class="form-check">
         <label >Product Category</label>
@@ -16,6 +26,6 @@
           <option>MobilePhone</option>
         </select>
       </div>
-      <button type="submit" >Submit</button>
+      <button type="submit"  class="btn btn-primary" [disabled]="productForm.form.invalid">Submit</button>
     </form>
     </div>
