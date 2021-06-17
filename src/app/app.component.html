@@ -1,7 +1,7 @@
 <table  style ="text-align: right; background-color: pink;">
    Welcome {{name}}
-  <app-cart [cartNumber1] = "getCartNumber()"></app-cart>
-  {{inputCartNumber}}
+  <app-cart-child [cartNumber] = "getCartNumber()"></app-cart-child>
+  Cart:{{inputCartNumber}}
 </table>
 <table>
   <tr>

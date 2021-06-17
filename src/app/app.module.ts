@@ -11,6 +11,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { LaptopComponent } from './laptop/laptop.component';
 import { LoginComponent } from './login/login.component';
 import { MobilePhoneComponent } from './mobile-phone/mobile-phone.component';
+import { CartChildComponent } from './cart-child/cart-child.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 const appRoutes:Routes=[
 
@@ -21,7 +25,9 @@ const appRoutes:Routes=[
   {path:'cart',component : CartComponent},
   {path:'login',component : LoginComponent},
   {path:'admin',component : AdminComponent},
+  { path: 'view/:productname', component: ViewProductComponent},
   {path:'**',component : ErrorPageComponent}
+ 
 
 ];
 
@@ -34,12 +40,15 @@ const appRoutes:Routes=[
     ErrorPageComponent,
     LaptopComponent,
     LoginComponent,
-    MobilePhoneComponent
+    MobilePhoneComponent,
+    CartChildComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

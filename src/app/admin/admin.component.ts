@@ -10,19 +10,20 @@ import { ProductServiceService } from '../product-service.service';
 })
 export class AdminComponent implements OnInit {
 
-  productModel:ProductDetails = new ProductDetails('',0,'');
+  /*productModel:ProductDetails = new ProductDetails(0,'',0,'');
   productService:ProductServiceService;
   
   constructor(lp:ProductServiceService) {
     this. productService=lp;
-   }
+   }*/
 
   ngOnInit(): void {
   }
-  onSubmit()
+ 
+  /*onSubmit()
   {
     console.log(this.productModel.productName);
-    this.productService.addProduct(this.productModel);
-  }
+    //this.productService.addProduct(this.productModel);
+  }*/
 
 }

@@ -1,6 +1,6 @@
 import { CartServiceService } from './../cart-service.service';
 import { ProductServiceService } from './../product-service.service';
-
+import { Router } from '@angular/router';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductDetails } from '../product-details';
 
@@ -12,24 +12,36 @@ import { ProductDetails } from '../product-details';
 export class LaptopComponent implements OnInit {
 
  
-  productService:ProductServiceService;
-  cartService:CartServiceService;
-  
-  constructor(lp:ProductServiceService, cs:CartServiceService) {
-    this. productService=lp;
-    this.cartService=cs;
+  laptops !: ProductDetails[];
+ 
+  constructor(private productService:ProductServiceService, 
+    private cartService:CartServiceService,
+    private router:Router) {
    }
 
   ngOnInit(): void {
+    this.getAllLaptops();
   }
 
-  getAllLaptops():ProductDetails[]{
-    console.log("laptop");
-    return this.productService.getAllLaptops();
-  }
   
   addToCart(laptop:ProductDetails){
+    console.log("added to cart");
     this.cartService.addToCart(laptop);
+  }
+  
+ getAllLaptops():ProductDetails[]
+  {
+    this.productService.getAllLaptopList().subscribe(data=>{
+        this.laptops = data;
+    },
+    err=>
+    {
+      console.log(err.error);
+    }
+    
+    );
+    //console.log(this.laptops.length);
+    return this.laptops;
   }
   
 }

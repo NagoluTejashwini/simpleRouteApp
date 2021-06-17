@@ -10,6 +10,7 @@ import { CartServiceService } from './../cart-service.service';
 })
 export class CameraComponent implements OnInit {
 
+  cameras !: ProductDetails[];
   productService:ProductServiceService;
   cartService:CartServiceService;
 
@@ -20,12 +21,26 @@ export class CameraComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  getAllCameras():ProductDetails[]{
+  
+  /*getAllCameras():ProductDetails[]{
     console.log("laptop");
     return this.productService.getAllCameras();
-  }
+  }*/
 
   addToCart(camera:ProductDetails){
     this.cartService.addToCart(camera);
+  }
+
+  getAllCameras()
+  {
+    this.productService.getAllCameraList().subscribe(data=>{
+        this.cameras = data;
+    },
+    err=>
+    {
+      console.log(err.error);
+    }
+    
+    );
   }
 }

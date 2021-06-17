@@ -1,6 +1,7 @@
-
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProductDetails } from './product-details';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,35 +12,24 @@ export class ProductServiceService {
   laptopArray:ProductDetails[] = [];
   cameraArray:ProductDetails[] = [];
   mobileArray:ProductDetails[]= [];
-  constructor() { }
+ 
+  private address = 'http://localhost:9001';
+  private getAllLaptop_endpoint = this.address+'/api/laptops';
+  private getAllCamera_endpoint = this.address+'/api/cameras';
 
-  addProduct(product:ProductDetails){
-    if(product.productCategory == 'Laptop'){
-      this.laptopArray.push(product);
-      console.log(this.laptopArray.length);
-    }
-    else if(product.productCategory == 'Camera'){
-      this.cameraArray.push(product);
-      console.log(this.cameraArray.length);
-    }
-    else{
-      this.mobileArray.push(product);
-      console.log(this.mobileArray.length);
-    }
-  }
+  constructor(private http:HttpClient) { }
+
   
-  getAllLaptops():ProductDetails[]{
-    console.log("inside service laptop"+this.laptopArray.length);
-    return this.laptopArray;
+
+  getAllLaptopList():Observable<ProductDetails[]>
+  {
+    //console.log('Product Service Laptop- Get Instructor called ');
+    return this.http.get<ProductDetails[]>(`${this.getAllLaptop_endpoint}`);
   }
 
-  getAllCameras():ProductDetails[]{
-    console.log("inside service camera"+this.cameraArray.length);
-    return this.cameraArray;
-  }
-
-  getAllMobiles():ProductDetails[]{
-    console.log("inside service mobile"+this.mobileArray.length);
-    return this.mobileArray;
+  getAllCameraList():Observable<ProductDetails[]>
+  {
+    console.log('Product Service Camera - Get Instructor called ');
+    return this.http.get<ProductDetails[]>(`${this.getAllCamera_endpoint}`);
   }
 }

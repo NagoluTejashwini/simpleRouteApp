@@ -21,10 +21,10 @@ export class MobilePhoneComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getAllMobiles():ProductDetails[]{
+  /*getAllMobiles():ProductDetails[]{
     console.log("laptop");
     return this.productService.getAllMobiles();
-  }
+  }*/
 
   addToCart(mobile:ProductDetails){
     this.cartService.addToCart(mobile);

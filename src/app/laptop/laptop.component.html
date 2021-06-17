@@ -1,13 +1,19 @@
 <p>laptop works!</p>
 <table >
     <tr>
+        <td>ProductId</td>
         <td>ProductName</td>
         <td>ProductCost</td>
+        <td>ProductCategory</td>
     </tr>
     <tr *ngFor="let item of getAllLaptops()">
-        <td>{{item.productName}}</td>
+        <td>{{item.productId}}</td>
+        <td><a routerLink="/view/{{item.productName}}">{{item.productName}}</a></td>
         <td>{{item.productCost}}</td>
-        <td> <button (click)="addToCart(item)">Add to Cart</button></td>
+        <td>{{item.productCategory}}</td>
+        <td>
+            <button (click) = "addToCart(item)">Add To Cart</button>
+        </td>
     </tr>
 </table>
 
