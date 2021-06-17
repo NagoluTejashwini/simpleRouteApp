@@ -32,4 +32,9 @@ export class ProductServiceService {
     console.log('Product Service Camera - Get Instructor called ');
     return this.http.get<ProductDetails[]>(`${this.getAllCamera_endpoint}`);
   }
+
+ /* getProductByname():Observable<ProductDetails>{
+    console.log('Product Service by name - Get Instructor called ');
+
+  }*/
 }

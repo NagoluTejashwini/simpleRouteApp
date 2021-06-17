@@ -6,7 +6,7 @@
         <td>ProductCost</td>
         <td>ProductCategory</td>
     </tr>
-    <tr *ngFor="let item of getAllLaptops()">
+    <tr *ngFor="let item of laptops">
         <td>{{item.productId}}</td>
         <td><a routerLink="/view/{{item.productName}}">{{item.productName}}</a></td>
         <td>{{item.productCost}}</td>

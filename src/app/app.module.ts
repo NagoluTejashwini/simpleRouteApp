@@ -25,7 +25,7 @@ const appRoutes:Routes=[
   {path:'cart',component : CartComponent},
   {path:'login',component : LoginComponent},
   {path:'admin',component : AdminComponent},
-  { path: 'view/:productname', component: ViewProductComponent},
+  {path: 'view/:productname', component: ViewProductComponent},
   {path:'**',component : ErrorPageComponent}
  
 

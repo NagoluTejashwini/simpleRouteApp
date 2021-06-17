@@ -15,12 +15,12 @@ export class LaptopComponent implements OnInit {
   laptops !: ProductDetails[];
  
   constructor(private productService:ProductServiceService, 
-    private cartService:CartServiceService,
-    private router:Router) {
+    private cartService:CartServiceService) {
+      this.getAllLaptops();
    }
 
   ngOnInit(): void {
-    this.getAllLaptops();
+   
   }
 
   
@@ -33,6 +33,7 @@ export class LaptopComponent implements OnInit {
   {
     this.productService.getAllLaptopList().subscribe(data=>{
         this.laptops = data;
+        //console.log(this.laptops);
     },
     err=>
     {
