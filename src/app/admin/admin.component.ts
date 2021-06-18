@@ -16,6 +16,9 @@ export class AdminComponent implements OnInit {
   productDetails:ProductDetails = new ProductDetails(0,'',0,'');
   updateDetails:ProductDetails = new ProductDetails(0,'',0,'');
   updatedProduct:ProductDetails = new ProductDetails(0,'',0,'');
+
+  createProductDetails:ProductDetails = new ProductDetails(0,'',0,'');
+ 
   constructor(private productService:ProductServiceService) {}
 
   ngOnInit(): void {
@@ -31,7 +34,8 @@ export class AdminComponent implements OnInit {
   {
     this.productService.insertLaptop(this.productDetails).subscribe(
       data=>{
-          console.log(" Data Saved !!! "+data);
+        this.createProductDetails = data;
+        console.log(" Data Saved !!! "+data);
       },
       error => {
         console.log(error);
@@ -41,7 +45,7 @@ export class AdminComponent implements OnInit {
   }
 
   doUpdate(){
-    console.log(this.productDetails);
+    console.log(this.updateDetails);
     this.doUpdateOnServer();
   }
 
@@ -51,7 +55,7 @@ export class AdminComponent implements OnInit {
     this.productService.updateLaptop(this.updateDetails)
         .subscribe(data=>{
           this.updatedProduct = data;
-          console.log(" Data Updted !!! "+this.updatedProduct.productName+" location "+ this.updatedProduct.productCost);
+          console.log(" Data Updted !!! "+this.updatedProduct.productName+" cost "+ this.updatedProduct.productCost);
         },
         error=>console.log(error)
         );

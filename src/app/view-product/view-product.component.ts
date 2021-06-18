@@ -1,5 +1,8 @@
+
+import { ProductServiceService } from './../product-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductDetails } from '../product-details';
 
 @Component({
   selector: 'app-view-product',
@@ -9,18 +12,25 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewProductComponent implements OnInit {
   
   productname:string;
-
-  constructor(private activatedRouter:ActivatedRoute) {
+  laptop !: ProductDetails;
+  constructor(private activatedRouter:ActivatedRoute, private  productService:ProductServiceService) {
     this.productname = this.activatedRouter.snapshot.params['productname'];
-    this.getProductDetails();
+    this.getProductDetails(this.productname);
    }
 
   ngOnInit(): void {
   }
 
-  getProductDetails()
+  getProductDetails(byName:string)
   {
-    // through service -> fetch the product details by productName
-    console.log("=======>> Product Name "+ this.productname);
+    this.productService.getLaptopByName(byName).subscribe(data=>{
+      this.laptop = data;
+  },
+  err=>
+  {
+    console.log(err.error);
+  }
+  
+  );
   }
 }

@@ -45,4 +45,8 @@ describe('LaptopComponent', () => {
 
        expect(mockdata).toEqual(actualResponse);
     });
+
+    
+  
+
 });
