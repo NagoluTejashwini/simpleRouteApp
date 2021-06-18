@@ -30,3 +30,72 @@
     </form>
     </div>
   -->
+
+
+  <div class="leftpane" >
+    
+    <form  (ngSubmit) = "onSubmit()">
+  
+        <div class="form-group">
+            <label>ProductName </label>
+            <input type="text" class="form-control" id="insname" 
+             name="insName" [(ngModel)]="productDetails.productName"/>
+             
+        </div>
+        <div class="form-group">
+            <label>Cost</label>
+            <input type="text" class="form-control" id="inssalary" 
+             name="inssalary" [(ngModel)]="productDetails.productCost"/>
+        </div>
+        
+        <div class="form-group">
+            <label> Category</label>
+            <input type="text" class="form-control" id="insjoining" 
+             name="insjoining" [(ngModel)]="productDetails.productCategory"/>
+        </div>
+        
+        <div class="card-footer text-muted">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        
+         
+    </form>
+    </div>
+
+    <div class="middlepane" >
+    </div>
+
+
+    <div class="rightpane">
+    
+      <form  (ngSubmit) = "doUpdate()">
+        <div class="form-group">
+          <label>ProductId </label>
+          <input type="text" class="form-control" id="inscode" name="inscode"
+              value="{{updateDetails.productId}}" [(ngModel)]="updateDetails.productId"/>
+      </div>
+          <div class="form-group">
+              <label>ProductName </label>
+              <input type="text" class="form-control" id="insname" 
+               name="insName" [(ngModel)]="updateDetails.productName"/>
+               
+          </div>
+          <div class="form-group">
+              <label>Cost</label>
+              <input type="text" class="form-control" id="inssalary" 
+               name="inssalary" [(ngModel)]="updateDetails.productCost"/>
+          </div>
+          
+          <div class="form-group">
+              <label> Category</label>
+              <input type="text" class="form-control" id="insjoining" 
+               name="insjoining" [(ngModel)]="updateDetails.productCategory"/>
+          </div>
+          
+          <div class="card-footer text-muted">
+              <button class="btn btn-primary" type="submit">Update</button>
+          </div>
+          
+           
+      </form>
+      </div>

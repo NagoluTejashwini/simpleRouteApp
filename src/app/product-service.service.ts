@@ -14,13 +14,18 @@ export class ProductServiceService {
   mobileArray:ProductDetails[]= [];
  
   private address = 'http://localhost:9001';
+  private insertLaptop_endpoint = this.address+'/api/add';
   private getAllLaptop_endpoint = this.address+'/api/laptops';
   private getAllCamera_endpoint = this.address+'/api/cameras';
+  private update_endpoint = this.address+'/api/update';
 
   constructor(private http:HttpClient) { }
 
   
-
+  insertLaptop(laptop:ProductDetails):Observable<Object>{
+    console.log('Instructor Service - Create Instructor called ');
+    return this.http.post<ProductDetails>(`${this.insertLaptop_endpoint}`, laptop);  
+  }
   getAllLaptopList():Observable<ProductDetails[]>
   {
     //console.log('Product Service Laptop- Get Instructor called ');
@@ -32,9 +37,10 @@ export class ProductServiceService {
     console.log('Product Service Camera - Get Instructor called ');
     return this.http.get<ProductDetails[]>(`${this.getAllCamera_endpoint}`);
   }
+  updateLaptop(laptop:ProductDetails):Observable<ProductDetails>
+  {
+    //http://localhost:9001/jpa/trainer/784/location/Pune}
 
- /* getProductByname():Observable<ProductDetails>{
-    console.log('Product Service by name - Get Instructor called ');
-
-  }*/
+    return this.http.put<ProductDetails>(`${this.update_endpoint}`,laptop);
+  }
 }

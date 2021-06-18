@@ -10,3 +10,27 @@ input.ng-invalid.ng-touched{
     border:1px solid red;
     box-shadow: 0 0 2px inset red ;
 }
+
+.leftpane {
+    width: 45%;
+    height: 100%;
+    float: left;
+    background-color: rosybrown;
+    border-collapse: collapse;
+}
+.middlepane {
+    width: 10%;
+    height: 100%;
+    float: left;
+    background-color: royalblue;
+    border-collapse: collapse;
+}
+.rightpane {
+    width: 45%;
+    height: 100%;
+    position: relative;
+    float: right;
+    background-color:pink;
+    border-collapse: collapse;
+  }
+  

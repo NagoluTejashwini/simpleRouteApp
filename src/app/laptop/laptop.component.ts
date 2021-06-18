@@ -29,7 +29,7 @@ export class LaptopComponent implements OnInit {
     this.cartService.addToCart(laptop);
   }
   
- getAllLaptops():ProductDetails[]
+ getAllLaptops()
   {
     this.productService.getAllLaptopList().subscribe(data=>{
         this.laptops = data;
@@ -42,7 +42,7 @@ export class LaptopComponent implements OnInit {
     
     );
     //console.log(this.laptops.length);
-    return this.laptops;
+   
   }
   
 }

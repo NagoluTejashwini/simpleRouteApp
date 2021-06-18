@@ -24,27 +24,25 @@ describe('LaptopComponent', () => {
     fixture = TestBed.createComponent(LaptopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    productService = TestBed.inject(ProductServiceService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
-  /*it('get laptop list from endpoint', () => {
 
-    let mockdata = [{productId:1,productName:'HP', productCost:45000,productCategory:'Laptop'},
+  it('get laptop list from endpoint', () => {
+
+    let mockdata:ProductDetails[] = [{productId:1,productName:'HP', productCost:45000,productCategory:'Laptop'},
                                       {productId:2,productName:'HP', productCost:45000,productCategory:'Laptop'}];
 
-      let actualResponse;
+      let actualResponse:ProductDetails[] = [];
      spyOn(productService, 'getAllLaptopList').and.returnValue(of(mockdata));
      productService.getAllLaptopList().subscribe(data=>{
       actualResponse = data;
     });
 
-       expect(actualResponse).toEqual(mockdata);
+       expect(mockdata).toEqual(actualResponse);
     });
-//end os=f describe method*/
-/*productId:number;
-    productName:string;
-    productCost:number;
-    productCategory:string;*/
+});
